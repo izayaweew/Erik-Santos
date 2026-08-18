@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Erik Santos | Imóveis de Luxo</title>
+    <!-- Script do Netlify Identity -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <style>
         * {
             box-sizing: border-box;
@@ -402,5 +403,17 @@
     <!-- Botão WhatsApp -->
     <a href="https://wa.me/5511987654321" class="whatsapp-float">WA</a>
 
+    <!-- Script de Redirecionamento de Login -->
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
 </body>
 </html>
