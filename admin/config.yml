@@ -1,0 +1,23 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "imoveis"
+    label: "Imóveis"
+    folder: "imoveis"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Título do Imóvel", name: "title", widget: "string" }
+      - { label: "Preço", name: "preco", widget: "string" }
+      - { label: "Localização", name: "localizacao", widget: "string" }
+      - { label: "Quartos", name: "quartos", widget: "number", value_type: "int" }
+      - { label: "Banheiros", name: "banheiros", widget: "number", value_type: "int" }
+      - { label: "Vagas de Garagem", name: "vagas", widget: "number", value_type: "int" }
+      - { label: "Área (m²)", name: "area", widget: "number", value_type: "int" }
+      - { label: "Descrição", name: "body", widget: "markdown" }
+      - { label: "Imagem Principal", name: "image", widget: "image" }
