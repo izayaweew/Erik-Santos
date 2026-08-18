@@ -108,49 +108,6 @@
             margin: 0 auto 30px auto;
         }
 
-        /* Caixa de Busca */
-        .search-box {
-            background-color: rgba(12, 23, 38, 0.9);
-            border: 1px solid #c5a059;
-            padding: 20px;
-            text-align: left;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .search-label {
-            color: #c5a059;
-            font-size: 9px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 5px;
-            display: block;
-        }
-
-        .search-select {
-            width: 100%;
-            background-color: #080f18;
-            border: 1px solid rgba(197, 160, 89, 0.4);
-            color: #ffffff;
-            padding: 10px;
-            font-size: 12px;
-            margin-bottom: 15px;
-        }
-
-        .btn-gold {
-            display: block;
-            width: 100%;
-            background-color: #c5a059;
-            color: #080f18;
-            text-align: center;
-            padding: 12px;
-            font-weight: bold;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
         /* Seção de Imóveis */
         .section-container {
             padding: 40px 20px;
@@ -178,12 +135,34 @@
             color: #ffffff;
         }
 
-        /* Card do Imóvel */
+        /* Grid e Card do Imóvel */
+        .imoveis-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
         .card {
             background-color: #0c1726;
             border: 1px solid rgba(197, 160, 89, 0.3);
             padding: 20px;
-            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+            margin-bottom: 15px;
+        }
+
+        .card-header-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .card-tag {
@@ -199,13 +178,12 @@
         .card-location {
             color: #a0aec0;
             font-size: 10px;
-            float: right;
         }
 
         .card-title {
             font-size: 16px;
             color: #ffffff;
-            margin: 15px 0 5px 0;
+            margin: 10px 0 5px 0;
             font-weight: 500;
         }
 
@@ -216,15 +194,11 @@
             margin-bottom: 15px;
         }
 
-        .card-details {
-            border-top: 1px solid #1a2b42;
-            border-bottom: 1px solid #1a2b42;
-            padding: 10px 0;
-            margin-bottom: 15px;
-            display: flex;
-            justify-content: space-between;
+        .card-desc {
+            color: #a0aec0;
             font-size: 11px;
-            color: #cbd5e0;
+            margin-bottom: 15px;
+            line-height: 1.4;
         }
 
         .btn-outline {
@@ -238,6 +212,14 @@
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 1px;
+        }
+
+        .empty-msg {
+            color: #a0aec0;
+            font-size: 13px;
+            text-align: center;
+            grid-column: 1 / -1;
+            padding: 30px 0;
         }
 
         /* Sobre o Corretor */
@@ -319,26 +301,6 @@
         <span class="hero-tag">Curadoria Exclusiva</span>
         <h1 class="hero-title">Conectando Você aos Melhores Imóveis de Luxo</h1>
         <p class="hero-desc">Intermediação imobiliária estratégica com assessoria jurídica completa para quem exige excelência.</p>
-
-        <!-- Filtro -->
-        <div class="search-box">
-            <label class="search-label">Tipo de Imóvel</label>
-            <select class="search-select">
-                <option>Todos os Tipos</option>
-                <option>Cobertura Duplex</option>
-                <option>Casa em Condomínio</option>
-                <option>Mansão de Praia</option>
-            </select>
-
-            <label class="search-label">Localização</label>
-            <select class="search-select">
-                <option>Todas as Regiões</option>
-                <option>São Paulo - Jardins / Itaim</option>
-                <option>Alphaville / Tamboré</option>
-            </select>
-
-            <a href="https://wa.me/5511987654321?text=Olá,%20busco%20imóveis%20de%20luxo." class="btn-gold">Buscar Imóveis</a>
-        </div>
     </section>
 
     <!-- Vitrine de Imóveis -->
@@ -348,36 +310,8 @@
             <h2 class="section-title">Residências em Destaque</h2>
         </div>
 
-        <!-- Imóvel 1 -->
-        <div class="card">
-            <div>
-                <span class="card-tag">Venda</span>
-                <span class="card-location">Jardim Europa, SP</span>
-            </div>
-            <h3 class="card-title">Cobertura Duplex Contemporânea</h3>
-            <div class="card-price">R$ 12.500.000</div>
-            <div class="card-details">
-                <span>🛏 4 Suítes</span>
-                <span>🚗 5 Vagas</span>
-                <span>📐 520 m²</span>
-            </div>
-            <a href="https://wa.me/5511987654321?text=Quero%20detalhes%20da%20Cobertura" class="btn-outline">Solicitar Dossiê</a>
-        </div>
-
-        <!-- Imóvel 2 -->
-        <div class="card">
-            <div>
-                <span class="card-tag">Venda</span>
-                <span class="card-location">Fazenda Boa Vista, SP</span>
-            </div>
-            <h3 class="card-title">Villa de Luxo Integrada à Natureza</h3>
-            <div class="card-price">R$ 28.000.000</div>
-            <div class="card-details">
-                <span>🛏 6 Suítes</span>
-                <span>🚗 8 Vagas</span>
-                <span>📐 980 m²</span>
-            </div>
-            <a href="https://wa.me/5511987654321?text=Quero%20detalhes%20da%20Villa" class="btn-outline">Solicitar Dossiê</a>
+        <div id="imoveis-container" class="imoveis-grid">
+            <p class="empty-msg">Nenhum imóvel publicado no momento.</p>
         </div>
     </section>
 
@@ -403,17 +337,69 @@
     <!-- Botão WhatsApp -->
     <a href="https://wa.me/5511987654321" class="whatsapp-float">WA</a>
 
-    <!-- Script de Redirecionamento de Login -->
+    <!-- Script de Busca de Imóveis -->
     <script>
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("init", user => {
-          if (!user) {
-            window.netlifyIdentity.on("login", () => {
-              document.location.href = "/admin/";
-            });
+      async function carregarImoveis() {
+        const container = document.getElementById('imoveis-container');
+        try {
+          const response = await fetch('https://api.github.com/repos/izayaweew/Erik-Santos/contents/imoveis');
+          if (!response.ok) {
+            container.innerHTML = '<p class="empty-msg">Nenhum imóvel publicado no momento.</p>';
+            return;
           }
-        });
+          
+          const files = await response.json();
+          if (!Array.isArray(files)) {
+            container.innerHTML = '<p class="empty-msg">Nenhum imóvel publicado no momento.</p>';
+            return;
+          }
+
+          const markdownFiles = files.filter(f => f.name.endsWith('.md'));
+
+          if (markdownFiles.length === 0) {
+            container.innerHTML = '<p class="empty-msg">Nenhum imóvel publicado no momento.</p>';
+            return;
+          }
+
+          container.innerHTML = '';
+
+          for (const file of markdownFiles) {
+            const res = await fetch(file.download_url);
+            const text = await res.text();
+
+            const titleMatch = text.match(/title:\s*"?([^"\n]+)"?/);
+            const priceMatch = text.match(/price:\s*"?([^"\n]+)"?/);
+            const locationMatch = text.match(/location:\s*"?([^"\n]+)"?/);
+            const imageMatch = text.match(/image:\s*"?([^"\n]+)"?/);
+            
+            const bodyContent = text.split('---').pop().trim();
+
+            const title = titleMatch ? titleMatch[1] : 'Imóvel Exclusivo';
+            const price = priceMatch ? priceMatch[1] : 'Sob Consulta';
+            const location = locationMatch ? locationMatch[1] : '';
+            const image = imageMatch ? imageMatch[1] : '';
+
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.innerHTML = `
+              ${image ? `<img src="/${image}" class="card-img" alt="${title}">` : ''}
+              <div class="card-header-info">
+                  <span class="card-tag">Venda</span>
+                  <span class="card-location">${location}</span>
+              </div>
+              <h3 class="card-title">${title}</h3>
+              <div class="card-price">${price}</div>
+              <p class="card-desc">${bodyContent.substring(0, 100)}${bodyContent.length > 100 ? '...' : ''}</p>
+              <a href="https://wa.me/5511987654321?text=Olá,%20tenho%20interesse%20no%20imóvel:%20${encodeURIComponent(title)}" class="btn-outline">Solicitar Dossiê</a>
+            `;
+            container.appendChild(card);
+          }
+        } catch (err) {
+          container.innerHTML = '<p class="empty-msg">Nenhum imóvel publicado no momento.</p>';
+        }
       }
+
+      carregarImoveis();
     </script>
 </body>
 </html>
