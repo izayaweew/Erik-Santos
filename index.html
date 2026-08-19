@@ -350,7 +350,7 @@
                 <div class="brand-sub">Imóveis de Alto Padrão</div>
             </div>
         </div>
-        <a href="https://wa.me/5511987654321" class="btn-top">Contato</a>
+        <a href="https://wa.me/5511966863811" target="_blank" class="btn-top">Contato</a>
     </header>
 
     <section class="hero">
@@ -387,7 +387,7 @@
         <p style="margin-top: 5px;">© 2026 Todos os direitos reservados.</p>
     </footer>
 
-    <a href="https://wa.me/5511987654321" class="whatsapp-float">WA</a>
+    <a href="https://wa.me/5511966863811" target="_blank" class="whatsapp-float">WA</a>
 
     <!-- Modal Popup -->
     <div id="modal-imovel" class="modal" onclick="fecharModal(event)">
@@ -434,7 +434,6 @@
             const priceMatch = text.match(/price:\s*"?([^"\n]+)"?/);
             const locationMatch = text.match(/location:\s*"?([^"\n]+)"?/);
             
-            // Extrai lista de fotos do YML
             const photosMatch = text.match(/photo:\s*"?([^"\n]+)"?/g);
             let photos = [];
             if (photosMatch) {
@@ -489,7 +488,7 @@
             gallery.appendChild(img);
         });
 
-        document.getElementById('modal-wa').href = `https://wa.me/5511987654321?text=Olá,%20tenho%20interesse%20no%20imóvel:%20${encodeURIComponent(item.title)}`;
+        document.getElementById('modal-wa').href = `https://wa.me/5511966863811?text=Olá,%20tenho%20interesse%20no%20imóvel:%20${encodeURIComponent(item.title)}`;
         document.getElementById('modal-imovel').style.display = 'flex';
       }
 
