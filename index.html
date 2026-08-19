@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Erik Santos | Imóveis de Luxo</title>
+    <title>Erik Santos Imóveis | Corretor de Imóveis & Bacharel em Direito</title>
     <!-- Script de Autenticação do Netlify Identity -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -14,10 +16,10 @@
         }
 
         body {
-            background-color: #080f18;
-            color: #f4f4f4;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.5;
+            background-color: #080d14;
+            color: #e2e8f0;
+            font-family: 'Montserrat', -apple-system, sans-serif;
+            line-height: 1.6;
         }
 
         a {
@@ -25,144 +27,174 @@
             color: inherit;
         }
 
-        /* Header / Topo */
+        /* Topo / Header */
         header {
-            background-color: #0c1726;
-            border-bottom: 1px solid #c5a059;
-            padding: 15px 20px;
+            background-color: rgba(9, 14, 23, 0.95);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.4);
+            padding: 15px 25px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-
-        .logo-box {
-            border: 1px solid #c5a059;
-            color: #c5a059;
-            padding: 4px 8px;
-            font-weight: bold;
-            font-size: 16px;
-            letter-spacing: 2px;
-            margin-right: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 900;
+            backdrop-filter: blur(8px);
         }
 
         .brand {
             display: flex;
             align-items: center;
+            gap: 12px;
+        }
+
+        .logo-box {
+            border: 1px solid #d4af37;
+            color: #d4af37;
+            padding: 5px 10px;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 16px;
+            letter-spacing: 2px;
         }
 
         .brand-title {
-            font-size: 14px;
+            font-family: 'Cinzel', serif;
+            font-size: 15px;
             font-weight: 700;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
             text-transform: uppercase;
             color: #ffffff;
         }
 
         .brand-sub {
-            font-size: 9px;
-            color: #c5a059;
-            letter-spacing: 1px;
+            font-size: 8px;
+            color: #d4af37;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
+            font-weight: 500;
         }
 
         .btn-top {
-            border: 1px solid #c5a059;
-            color: #c5a059;
-            padding: 8px 14px;
+            border: 1px solid #d4af37;
+            color: #d4af37;
+            padding: 8px 16px;
             font-size: 10px;
-            font-weight: bold;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
+            transition: all 0.3s;
         }
 
-        /* Capa / Hero */
+        .btn-top:hover {
+            background-color: #d4af37;
+            color: #080d14;
+        }
+
+        /* Capa / Hero com Background da Nova Identidade Visual */
         .hero {
-            padding: 40px 20px;
+            padding: 80px 20px;
             text-align: center;
-            background: linear-gradient(180deg, #080f18 0%, #122237 100%);
-            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+            background: linear-gradient(180deg, rgba(8, 13, 20, 0.75) 0%, rgba(8, 13, 20, 0.95) 100%), url('hero-bg.jpg') center/cover no-repeat;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-symbol {
+            width: 80px;
+            margin-bottom: 15px;
+            opacity: 0.9;
         }
 
         .hero-tag {
-            color: #c5a059;
-            font-size: 10px;
-            letter-spacing: 3px;
+            color: #d4af37;
+            font-size: 11px;
+            letter-spacing: 4px;
             text-transform: uppercase;
             font-weight: 600;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             display: block;
         }
 
         .hero-title {
-            font-size: 26px;
-            font-weight: 300;
+            font-family: 'Cinzel', serif;
+            font-size: 32px;
+            font-weight: 400;
             color: #ffffff;
             margin-bottom: 15px;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            max-width: 800px;
         }
 
         .hero-desc {
             color: #a0aec0;
-            font-size: 12px;
-            max-width: 500px;
+            font-size: 13px;
+            max-width: 580px;
             margin: 0 auto 30px auto;
+            font-weight: 300;
         }
 
-        /* Estrutura Principal */
+        /* Estrutura de Conteúdo */
         .section-container {
-            padding: 40px 20px;
-            max-width: 1000px;
+            padding: 50px 20px;
+            max-width: 1050px;
             margin: 0 auto;
         }
 
         .section-header {
-            margin-bottom: 25px;
-            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
-            padding-bottom: 10px;
+            margin-bottom: 35px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+            padding-bottom: 12px;
+            text-align: center;
         }
 
         .section-tag {
-            color: #c5a059;
-            font-size: 9px;
-            font-weight: bold;
-            letter-spacing: 2px;
+            color: #d4af37;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 3px;
             text-transform: uppercase;
         }
 
         .section-title {
-            font-size: 20px;
+            font-family: 'Cinzel', serif;
+            font-size: 22px;
             font-weight: 400;
             color: #ffffff;
+            letter-spacing: 1px;
         }
 
+        /* Vitrine de Imóveis */
         .imoveis-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+            gap: 25px;
         }
 
-        /* Cards do Imóvel */
         .card {
-            background-color: #0c1726;
-            border: 1px solid rgba(197, 160, 89, 0.3);
+            background-color: #0d1522;
+            border: 1px solid rgba(212, 175, 55, 0.25);
             padding: 20px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             cursor: pointer;
-            transition: transform 0.2s, border-color 0.2s;
+            transition: all 0.3s ease;
         }
 
         .card:hover {
-            transform: translateY(-3px);
-            border-color: #c5a059;
+            transform: translateY(-4px);
+            border-color: #d4af37;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
         }
 
         .card-img {
             width: 100%;
-            height: 180px;
+            height: 190px;
             object-fit: cover;
-            border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.25);
             margin-bottom: 15px;
         }
 
@@ -173,53 +205,61 @@
         }
 
         .card-tag {
-            background-color: rgba(197, 160, 89, 0.15);
-            color: #c5a059;
-            font-size: 8px;
-            font-weight: bold;
+            background-color: rgba(212, 175, 55, 0.12);
+            color: #d4af37;
+            font-size: 9px;
+            font-weight: 600;
             text-transform: uppercase;
-            padding: 3px 6px;
-            border: 1px solid rgba(197, 160, 89, 0.3);
+            padding: 3px 8px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            letter-spacing: 1px;
         }
 
         .card-location {
             color: #a0aec0;
-            font-size: 10px;
+            font-size: 11px;
         }
 
         .card-title {
+            font-family: 'Cinzel', serif;
             font-size: 16px;
             color: #ffffff;
-            margin: 10px 0 5px 0;
-            font-weight: 500;
+            margin: 12px 0 6px 0;
+            font-weight: 600;
         }
 
         .card-price {
             font-size: 18px;
-            font-weight: bold;
-            color: #c5a059;
+            font-weight: 600;
+            color: #d4af37;
             margin-bottom: 15px;
         }
 
         .card-desc {
             color: #a0aec0;
             font-size: 11px;
-            margin-bottom: 15px;
-            line-height: 1.4;
+            margin-bottom: 18px;
+            line-height: 1.5;
         }
 
         .btn-outline {
             display: block;
             width: 100%;
-            border: 1px solid #c5a059;
-            color: #c5a059;
+            border: 1px solid #d4af37;
+            color: #d4af37;
             text-align: center;
             padding: 10px;
             font-size: 10px;
-            font-weight: bold;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             background: transparent;
+            transition: all 0.3s;
+        }
+
+        .btn-outline:hover {
+            background-color: #d4af37;
+            color: #080d14;
         }
 
         .empty-msg {
@@ -230,38 +270,69 @@
             padding: 30px 0;
         }
 
-        /* Sobre o Corretor */
-        .about-box {
-            background-color: #0c1726;
-            border: 1px solid #c5a059;
-            padding: 25px;
-            text-align: center;
+        /* Cartão de Visita / Sobre */
+        .card-visita-box {
+            background-color: #0d1522;
+            border: 1px solid #d4af37;
+            padding: 35px 25px;
+            max-width: 750px;
+            margin: 0 auto;
+            position: relative;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
         }
 
-        .about-avatar {
-            width: 60px;
-            height: 60px;
-            border: 1px solid #c5a059;
-            color: #c5a059;
-            margin: 0 auto 15px auto;
+        .card-visita-header {
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 20px;
+            gap: 20px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+            padding-bottom: 20px;
+            margin-bottom: 20px;
         }
 
-        .creci-badge {
-            display: inline-block;
-            border: 1px solid #c5a059;
-            color: #c5a059;
-            padding: 2px 8px;
-            font-size: 9px;
-            font-weight: bold;
-            margin-top: 10px;
+        .card-visita-title {
+            font-family: 'Cinzel', serif;
+            color: #ffffff;
+            font-size: 22px;
+            font-weight: 600;
         }
 
-        /* Modal / Popup de Galeria */
+        .card-visita-sub {
+            color: #d4af37;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        .card-visita-text {
+            color: #a0aec0;
+            font-size: 13px;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .contact-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            font-size: 12px;
+            border-top: 1px solid rgba(212, 175, 55, 0.25);
+            padding-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #e2e8f0;
+        }
+
+        .contact-item strong {
+            color: #d4af37;
+        }
+
+        /* Modal Galeria */
         .modal {
             display: none;
             position: fixed;
@@ -269,33 +340,30 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.85);
+            background-color: rgba(0, 0, 0, 0.88);
             z-index: 1000;
             justify-content: center;
             align-items: center;
             padding: 20px;
-            overflow-y: auto;
         }
 
         .modal-content {
-            background-color: #0c1726;
-            border: 1px solid #c5a059;
-            max-width: 700px;
+            background-color: #0d1522;
+            border: 1px solid #d4af37;
+            max-width: 750px;
             width: 100%;
-            padding: 25px;
+            padding: 30px;
             position: relative;
             max-height: 90vh;
             overflow-y: auto;
-            border-radius: 4px;
         }
 
         .close-btn {
             position: absolute;
             top: 15px;
             right: 20px;
-            color: #c5a059;
+            color: #d4af37;
             font-size: 28px;
-            font-weight: bold;
             cursor: pointer;
         }
 
@@ -308,58 +376,59 @@
 
         .modal-gallery img {
             width: 100%;
-            max-height: 400px;
+            max-height: 420px;
             object-fit: cover;
-            border: 1px solid rgba(197, 160, 89, 0.3);
+            border: 1px solid rgba(212, 175, 55, 0.3);
         }
 
-        /* Rodapé e Botão Flutuante */
+        /* Rodapé & Flutuante */
         footer {
-            border-top: 1px solid rgba(197, 160, 89, 0.2);
-            padding: 20px;
+            border-top: 1px solid rgba(212, 175, 55, 0.25);
+            padding: 25px;
             text-align: center;
             font-size: 10px;
             color: #718096;
+            letter-spacing: 1.5px;
         }
 
         .whatsapp-float {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            bottom: 25px;
+            right: 25px;
             background-color: #25d366;
             color: #ffffff;
-            width: 50px;
-            height: 50px;
+            width: 52px;
+            height: 52px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            font-size: 22px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-            z-index: 100;
+            font-size: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            z-index: 950;
         }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
+    <!-- Topo / Header -->
     <header>
         <div class="brand">
             <div class="logo-box">ES</div>
             <div>
                 <div class="brand-title">Erik Santos</div>
-                <div class="brand-sub">Imóveis de Alto Padrão</div>
+                <div class="brand-sub">Imóveis • Bacharel em Direito</div>
             </div>
         </div>
-        <a href="https://wa.me/5511966863811" target="_blank" class="btn-top">Contato</a>
+        <a href="https://wa.me/5511966863811" target="_blank" class="btn-top">Atendimento Exclusivo</a>
     </header>
 
-    <!-- Hero / Capa -->
+    <!-- Capa / Hero -->
     <section class="hero">
         <span class="hero-tag">Curadoria Exclusiva</span>
         <h1 class="hero-title">Conectando Você aos Melhores Imóveis de Luxo</h1>
-        <p class="hero-desc">Intermediação imobiliária estratégica com assessoria jurídica completa para quem exige excelência.</p>
+        <p class="hero-desc">Intermediação imobiliária estratégica combinada com a precisão jurídica para quem exige excelência e total segurança.</p>
     </section>
 
     <!-- Vitrine de Imóveis -->
@@ -370,46 +439,65 @@
         </div>
 
         <div id="imoveis-container" class="imoveis-grid">
-            <p class="empty-msg">Carregando imóveis...</p>
+            <p class="empty-msg">Carregando imóveis do catálogo...</p>
         </div>
     </section>
 
-    <!-- Sobre o Corretor -->
+    <!-- Cartão / Apresentação -->
     <section class="section-container">
-        <div class="about-box">
-            <div class="about-avatar">ES</div>
-            <h3 style="color: #ffffff; font-size: 18px;">Erik Santos</h3>
-            <p style="color: #c5a059; font-size: 11px; text-transform: uppercase; margin-top: 2px;">Corretor de Imóveis • Bacharel em Direito</p>
-            <p style="color: #a0aec0; font-size: 12px; margin-top: 15px; line-height: 1.6;">
-                Especializado no mercado imobiliário de alto padrão. A união do conhecimento de mercado com a formação em Direito garante total segurança jurídica em todas as negociações.
+        <div class="card-visita-box">
+            <div class="card-visita-header">
+                <div class="logo-box" style="font-size: 22px; padding: 8px 14px;">ES</div>
+                <div>
+                    <h3 class="card-visita-title">Erik Santos</h3>
+                    <div class="card-visita-sub">Corretor de Imóveis • Bacharel em Direito</div>
+                </div>
+            </div>
+            
+            <p class="card-visita-text">
+                Especializado no mercado imobiliário de alto padrão. A união do conhecimento de mercado com a formação em Direito garante total segurança jurídica em todas as etapas da sua negociação.
             </p>
-            <div class="creci-badge">CRECI: 287363-F</div>
+
+            <div class="contact-list">
+                <div class="contact-item">
+                    <span>📞 <strong>Telefone:</strong> 11 9 6686-3811</span>
+                </div>
+                <div class="contact-item">
+                    <span>✉️ <strong>E-mail:</strong> erikcorretor@creci.org.br</span>
+                </div>
+                <div class="contact-item">
+                    <span>📷 <strong>Instagram:</strong> @erike.corretor</span>
+                </div>
+                <div class="contact-item">
+                    <span>📄 <strong>CRECI:</strong> 287367</span>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Rodapé -->
     <footer>
-        <p>ERIK SANTOS • CONSULTORIA IMOBILIÁRIA DE LUXO</p>
-        <p style="margin-top: 5px;">© 2026 Todos os direitos reservados.</p>
+        <p>ERIK SANTOS IMÓVEIS • CONSULTORIA IMOBILIÁRIA DE LUXO</p>
+        <p style="margin-top: 5px;">© 2026 Todos os direitos reservados. CRECI 287367</p>
     </footer>
 
-    <!-- Botão WhatsApp Flutuante -->
+    <!-- Botão Flutuante do WhatsApp -->
     <a href="https://wa.me/5511966863811" target="_blank" class="whatsapp-float">WA</a>
 
-    <!-- Modal Popup / Galeria -->
+    <!-- Modal Popup / Galeria de Fotos -->
     <div id="modal-imovel" class="modal" onclick="fecharModal(event)">
         <div class="modal-content" onclick="event.stopPropagation()">
             <span class="close-btn" onclick="fecharModalDirect()">&times;</span>
-            <h2 id="modal-title" style="color: #ffffff; font-size: 20px; margin-bottom: 5px;"></h2>
-            <div id="modal-price" style="color: #c5a059; font-weight: bold; font-size: 18px; margin-bottom: 5px;"></div>
+            <h2 id="modal-title" style="font-family: 'Cinzel', serif; color: #ffffff; font-size: 22px; margin-bottom: 5px;"></h2>
+            <div id="modal-price" style="color: #d4af37; font-weight: bold; font-size: 18px; margin-bottom: 5px;"></div>
             <div id="modal-location" style="color: #a0aec0; font-size: 12px; margin-bottom: 15px;"></div>
             <div id="modal-gallery" class="modal-gallery"></div>
-            <p id="modal-desc" style="color: #a0aec0; font-size: 13px; line-height: 1.6; white-space: pre-line; margin-bottom: 20px;"></p>
-            <a id="modal-wa" href="" target="_blank" class="btn-outline">Solicitar Atendimento no WhatsApp</a>
+            <p id="modal-desc" style="color: #a0aec0; font-size: 13px; line-height: 1.7; white-space: pre-line; margin-bottom: 25px;"></p>
+            <a id="modal-wa" href="" target="_blank" class="btn-outline">Solicitar Atendimento Exclusivo no WhatsApp</a>
         </div>
     </div>
 
-    <!-- Script de Processamento e Exibição -->
+    <!-- Script de Processamento e Exibição de Anúncios -->
     <script>
       let imóveisCache = [];
 
@@ -442,7 +530,7 @@
             const priceMatch = text.match(/price:\s*"?([^"\n]+)"?/);
             const locationMatch = text.match(/location:\s*"?([^"\n]+)"?/);
             
-            // Leitura flexível do YAML para extrair todas as fotos da lista ou campo legado
+            // Extração de fotos da galeria
             let photos = [];
             const photosBlock = text.match(/photos:\s*([\s\S]*?)(?=\n[a-z]+:|\n---)/);
             
@@ -474,12 +562,12 @@
             card.innerHTML = `
               ${imovelObj.photos.length > 0 ? `<img src="/${imovelObj.photos[0]}" class="card-img" alt="${imovelObj.title}">` : ''}
               <div class="card-header-info">
-                  <span class="card-tag">Venda</span>
+                  <span class="card-tag">Venda Exclusiva</span>
                   <span class="card-location">${imovelObj.location}</span>
               </div>
               <h3 class="card-title">${imovelObj.title}</h3>
               <div class="card-price">${imovelObj.price}</div>
-              <p class="card-desc">${imovelObj.desc.substring(0, 90)}${imovelObj.desc.length > 90 ? '...' : ''}</p>
+              <p class="card-desc">${imovelObj.desc.substring(0, 85)}${imovelObj.desc.length > 85 ? '...' : ''}</p>
               <button class="btn-outline">Ver Fotos e Detalhes</button>
             `;
             container.appendChild(card);
