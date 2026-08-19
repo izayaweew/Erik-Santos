@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Erik Santos | Imóveis de Luxo</title>
-    <!-- Script do Netlify Identity -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <style>
         * {
@@ -25,7 +24,7 @@
             color: inherit;
         }
 
-        /* Topo / Header */
+        /* Header */
         header {
             background-color: #0c1726;
             border-bottom: 1px solid #c5a059;
@@ -75,7 +74,7 @@
             letter-spacing: 1px;
         }
 
-        /* Capa / Hero */
+        /* Hero */
         .hero {
             padding: 40px 20px;
             text-align: center;
@@ -108,7 +107,7 @@
             margin: 0 auto 30px auto;
         }
 
-        /* Seção de Imóveis */
+        /* Container & Grid */
         .section-container {
             padding: 40px 20px;
             max-width: 1000px;
@@ -135,13 +134,13 @@
             color: #ffffff;
         }
 
-        /* Grid e Card do Imóvel */
         .imoveis-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 20px;
         }
 
+        /* Card */
         .card {
             background-color: #0c1726;
             border: 1px solid rgba(197, 160, 89, 0.3);
@@ -149,6 +148,13 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            cursor: pointer;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            border-color: #c5a059;
         }
 
         .card-img {
@@ -212,6 +218,7 @@
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 1px;
+            background: transparent;
         }
 
         .empty-msg {
@@ -222,7 +229,7 @@
             padding: 30px 0;
         }
 
-        /* Sobre o Corretor */
+        /* Sobre */
         .about-box {
             background-color: #0c1726;
             border: 1px solid #c5a059;
@@ -253,7 +260,59 @@
             margin-top: 10px;
         }
 
-        /* Rodapé */
+        /* Modal / Popup */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background-color: #0c1726;
+            border: 1px solid #c5a059;
+            max-width: 700px;
+            width: 100%;
+            padding: 25px;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+            border-radius: 4px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            color: #c5a059;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .modal-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .modal-gallery img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border: 1px solid rgba(197, 160, 89, 0.3);
+        }
+
+        /* Footer & WhatsApp */
         footer {
             border-top: 1px solid rgba(197, 160, 89, 0.2);
             padding: 20px;
@@ -262,7 +321,6 @@
             color: #718096;
         }
 
-        /* Botão Flutuante */
         .whatsapp-float {
             position: fixed;
             bottom: 20px;
@@ -284,7 +342,6 @@
 </head>
 <body>
 
-    <!-- Header -->
     <header>
         <div class="brand">
             <div class="logo-box">ES</div>
@@ -296,14 +353,12 @@
         <a href="https://wa.me/5511987654321" class="btn-top">Contato</a>
     </header>
 
-    <!-- Capa / Hero -->
     <section class="hero">
         <span class="hero-tag">Curadoria Exclusiva</span>
         <h1 class="hero-title">Conectando Você aos Melhores Imóveis de Luxo</h1>
         <p class="hero-desc">Intermediação imobiliária estratégica com assessoria jurídica completa para quem exige excelência.</p>
     </section>
 
-    <!-- Vitrine de Imóveis -->
     <section class="section-container">
         <div class="section-header">
             <span class="section-tag">Portfólio Selecionado</span>
@@ -311,11 +366,10 @@
         </div>
 
         <div id="imoveis-container" class="imoveis-grid">
-            <p class="empty-msg">Nenhum imóvel publicado no momento.</p>
+            <p class="empty-msg">Carregando imóveis...</p>
         </div>
     </section>
 
-    <!-- Sobre o Corretor -->
     <section class="section-container">
         <div class="about-box">
             <div class="about-avatar">ES</div>
@@ -328,17 +382,29 @@
         </div>
     </section>
 
-    <!-- Rodapé -->
     <footer>
         <p>ERIK SANTOS • CONSULTORIA IMOBILIÁRIA DE LUXO</p>
         <p style="margin-top: 5px;">© 2026 Todos os direitos reservados.</p>
     </footer>
 
-    <!-- Botão WhatsApp -->
     <a href="https://wa.me/5511987654321" class="whatsapp-float">WA</a>
 
-    <!-- Script de Busca de Imóveis -->
+    <!-- Modal Popup -->
+    <div id="modal-imovel" class="modal" onclick="fecharModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close-btn" onclick="fecharModalDirect()">&times;</span>
+            <h2 id="modal-title" style="color: #ffffff; font-size: 20px; margin-bottom: 5px;"></h2>
+            <div id="modal-price" style="color: #c5a059; font-weight: bold; font-size: 18px; margin-bottom: 5px;"></div>
+            <div id="modal-location" style="color: #a0aec0; font-size: 12px; margin-bottom: 15px;"></div>
+            <div id="modal-gallery" class="modal-gallery"></div>
+            <p id="modal-desc" style="color: #a0aec0; font-size: 13px; line-height: 1.6; white-space: pre-line; margin-bottom: 20px;"></p>
+            <a id="modal-wa" href="" target="_blank" class="btn-outline">Solicitar Atendimento no WhatsApp</a>
+        </div>
+    </div>
+
     <script>
+      let imóveisCache = [];
+
       async function carregarImoveis() {
         const container = document.getElementById('imoveis-container');
         try {
@@ -349,11 +415,6 @@
           }
           
           const files = await response.json();
-          if (!Array.isArray(files)) {
-            container.innerHTML = '<p class="empty-msg">Nenhum imóvel publicado no momento.</p>';
-            return;
-          }
-
           const markdownFiles = files.filter(f => f.name.endsWith('.md'));
 
           if (markdownFiles.length === 0) {
@@ -362,41 +423,84 @@
           }
 
           container.innerHTML = '';
+          imóveisCache = [];
 
-          for (const file of markdownFiles) {
+          for (let index = 0; index < markdownFiles.length; index++) {
+            const file = markdownFiles[index];
             const res = await fetch(file.download_url);
             const text = await res.text();
 
             const titleMatch = text.match(/title:\s*"?([^"\n]+)"?/);
             const priceMatch = text.match(/price:\s*"?([^"\n]+)"?/);
             const locationMatch = text.match(/location:\s*"?([^"\n]+)"?/);
-            const imageMatch = text.match(/image:\s*"?([^"\n]+)"?/);
             
+            // Extrai lista de fotos do YML
+            const photosMatch = text.match(/photo:\s*"?([^"\n]+)"?/g);
+            let photos = [];
+            if (photosMatch) {
+                photos = photosMatch.map(p => p.replace(/photo:\s*"?/, '').replace(/"?$/, '').trim());
+            }
+
             const bodyContent = text.split('---').pop().trim();
 
-            const title = titleMatch ? titleMatch[1] : 'Imóvel Exclusivo';
-            const price = priceMatch ? priceMatch[1] : 'Sob Consulta';
-            const location = locationMatch ? locationMatch[1] : '';
-            const image = imageMatch ? imageMatch[1] : '';
+            const imovelObj = {
+                title: titleMatch ? titleMatch[1] : 'Imóvel Exclusivo',
+                price: priceMatch ? priceMatch[1] : 'Sob Consulta',
+                location: locationMatch ? locationMatch[1] : '',
+                photos: photos,
+                desc: bodyContent
+            };
+
+            imóveisCache.push(imovelObj);
 
             const card = document.createElement('div');
             card.className = 'card';
+            card.onclick = () => abrirModal(index);
             card.innerHTML = `
-              ${image ? `<img src="/${image}" class="card-img" alt="${title}">` : ''}
+              ${imovelObj.photos.length > 0 ? `<img src="/${imovelObj.photos[0]}" class="card-img" alt="${imovelObj.title}">` : ''}
               <div class="card-header-info">
                   <span class="card-tag">Venda</span>
-                  <span class="card-location">${location}</span>
+                  <span class="card-location">${imovelObj.location}</span>
               </div>
-              <h3 class="card-title">${title}</h3>
-              <div class="card-price">${price}</div>
-              <p class="card-desc">${bodyContent.substring(0, 100)}${bodyContent.length > 100 ? '...' : ''}</p>
-              <a href="https://wa.me/5511987654321?text=Olá,%20tenho%20interesse%20no%20imóvel:%20${encodeURIComponent(title)}" class="btn-outline">Solicitar Dossiê</a>
+              <h3 class="card-title">${imovelObj.title}</h3>
+              <div class="card-price">${imovelObj.price}</div>
+              <p class="card-desc">${imovelObj.desc.substring(0, 90)}${imovelObj.desc.length > 90 ? '...' : ''}</p>
+              <button class="btn-outline">Ver Fotos e Detalhes</button>
             `;
             container.appendChild(card);
           }
         } catch (err) {
           container.innerHTML = '<p class="empty-msg">Nenhum imóvel publicado no momento.</p>';
         }
+      }
+
+      function abrirModal(index) {
+        const item = imóveisCache[index];
+        document.getElementById('modal-title').innerText = item.title;
+        document.getElementById('modal-price').innerText = item.price;
+        document.getElementById('modal-location').innerText = item.location;
+        document.getElementById('modal-desc').innerText = item.desc;
+        
+        const gallery = document.getElementById('modal-gallery');
+        gallery.innerHTML = '';
+        item.photos.forEach(p => {
+            const img = document.createElement('img');
+            img.src = '/' + p;
+            gallery.appendChild(img);
+        });
+
+        document.getElementById('modal-wa').href = `https://wa.me/5511987654321?text=Olá,%20tenho%20interesse%20no%20imóvel:%20${encodeURIComponent(item.title)}`;
+        document.getElementById('modal-imovel').style.display = 'flex';
+      }
+
+      function fecharModal(e) {
+        if (e.target.id === 'modal-imovel') {
+            document.getElementById('modal-imovel').style.display = 'none';
+        }
+      }
+
+      function fecharModalDirect() {
+        document.getElementById('modal-imovel').style.display = 'none';
       }
 
       carregarImoveis();
