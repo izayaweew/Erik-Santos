@@ -10,11 +10,15 @@ collections:
     label: "Imóveis"
     folder: "imoveis"
     create: true
-    delete: true # Permite excluir anúncios pelo painel
+    delete: true
     slug: "{{slug}}"
     fields:
       - {label: "Título", name: "title", widget: "string"}
       - {label: "Preço", name: "price", widget: "string"}
       - {label: "Localização", name: "location", widget: "string"}
-      - {label: "Foto principal", name: "image", widget: "image", required: false}
+      - label: "Galeria de Fotos"
+        name: "photos"
+        widget: "list"
+        summary: '{{fields.photo}}'
+        field: {label: "Foto", name: "photo", widget: "image"}
       - {label: "Descrição", name: "body", widget: "markdown"}
